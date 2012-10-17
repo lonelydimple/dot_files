@@ -1,0 +1,14 @@
+# ~/.tmuxinator/mbc.yml
+# you can make as many tabs as you wish...
+
+project_name: mbc
+project_root: ~/projects/mbc
+tabs:
+  - editor: vim
+  - shell:
+  - server: rails s
+  - console: rails c
+  - production_console: rails c production
+  - test_log: tail -f log/test.log
+  - guard: bundle exec guard -g spork
+  - pdf_helper: cd pdf_helper/ && ./start_pdf_helper.sh
