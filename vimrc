@@ -10,7 +10,7 @@ set t_Co=256
 set background=light
 colorscheme solarized
 
-let g:vtroom_use_vimux = 1
+" let g:vtroom_use_vimux = 1
 
 set number
 set nowrap
