@@ -1,2 +1,3 @@
-set guifont=Droid\ Sans\ Mono:h12
+set guifont=Monaco:h12
+colorscheme solarized
 set shell=/bin/sh

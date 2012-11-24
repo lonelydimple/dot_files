@@ -78,7 +78,7 @@ endfunction
 " map ri :InspectVimTmuxRunner
 "
 " " Close all other tmux panes in current window
-map <leader>r :CloseVimTmuxPanes<CR>
+map <leader>r :Rake<CR>
 "
 " " Interrupt any command running in the runner pane
 " map rs :InterruptVimTmuxRunner
