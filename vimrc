@@ -10,7 +10,7 @@ set t_Co=256
 set background=light
 colorscheme solarized
 
-" let g:vtroom_use_vimux = 1
+let g:vtroom_use_vimux = 1
 
 set number
 set nowrap
@@ -82,3 +82,10 @@ map <leader>r :Rake<CR>
 "
 " " Interrupt any command running in the runner pane
 " map rs :InterruptVimTmuxRunner
+
+" Yank text to the OS X clipboard
+noremap <leader>y "*y
+noremap <leader>yy "*Y
+
+" Preserve indentation while pasting text from the OS X clipboard
+noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
