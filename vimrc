@@ -7,11 +7,8 @@ set laststatus=2
 set encoding=utf-8
 set t_Co=256
 
-set background=dark
-colorscheme grb256
+colorscheme tomorrow
 
-set number
-set nowrap
 set tabstop=2
 set shiftwidth=2
 set autoindent
@@ -105,7 +102,7 @@ noremap <leader>y "*y
 noremap <leader>yy "*Y
 
 " Preserve indentation while pasting text from the OS X clipboard
-noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
+noremap <leader>p :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 
 " fixes rvm scripting from zsh
 set shell=/bin/sh
@@ -129,3 +126,31 @@ map <leader>gs :CommandTFlush<cr>\|:CommandT public/stylesheets<cr>
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" RENAME CURRENT FILE
+" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! RenameFile()
+  let old_name = expand('%')
+  let new_name = input('New file name: ', expand('%'), 'file')
+  if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+  endif
+endfunction
+map <leader>n :call RenameFile()<cr>
+
+func! WordProcessorMode()
+  setlocal formatoptions=1
+  setlocal noexpandtab
+  map j gj
+  map k gk
+  setlocal spell spelllang=en_us
+  set thesaurus+=/Users/sbrown/.vim/thesaurus/mthesaur.txt
+  set complete+=s
+  set formatprg=par
+  setlocal wrap
+  setlocal linebreak
+endfu
+com! WP call WordProcessorMode()
