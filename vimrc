@@ -7,14 +7,14 @@ set laststatus=2
 set encoding=utf-8
 set t_Co=256
 
-colorscheme tomorrow
+colorscheme solarized
 
 set tabstop=2
 set shiftwidth=2
 set autoindent
 set laststatus=2
 set showtabline=2
-set wildmode=longest,list
+set wildmode=list:full
 set wildmenu
 
 :set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
@@ -120,7 +120,7 @@ map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
 map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
 map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
 map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
-map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
+map <leader>gp :CommandTFlush<cr>\|:CommandT app/replicators<cr>
 map <leader>gs :CommandTFlush<cr>\|:CommandT public/stylesheets<cr>
 
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
