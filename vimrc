@@ -2,19 +2,22 @@ call pathogen#infect()
 syntax on
 filetype plugin indent on
 
+set hidden
 set nocompatible
 set laststatus=2
 set encoding=utf-8
 set t_Co=256
 
-colorscheme solarized
+set background=dark
+colorscheme grb256
 
 set tabstop=2
 set shiftwidth=2
 set autoindent
 set laststatus=2
 set showtabline=2
-set wildmode=list:full
+set nowrap
+set wildmode=longest,list
 set wildmenu
 
 :set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
@@ -82,21 +85,6 @@ endfunction
 :inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 :set dictionary="/usr/dict/words"
 
-" some vimux mappings
-" map rp :PromptVimTmuxCommand
-
-" Run last command executed by RunVimTmuxCommand
-" map rl :RunLastVimTmuxCommand
-"
-" " Inspect runner pane
-" map ri :InspectVimTmuxRunner
-"
-" " Close all other tmux panes in current window
-"map <leader>r :CloseVimTmuxPanes<CR>
-"
-" " Interrupt any command running in the runner pane
-" map rs :InterruptVimTmuxRunner
-
 " Yank text to the OS X clipboard
 noremap <leader>y "*y
 noremap <leader>yy "*Y
@@ -123,10 +111,27 @@ map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
 map <leader>gp :CommandTFlush<cr>\|:CommandT app/replicators<cr>
 map <leader>gs :CommandTFlush<cr>\|:CommandT public/stylesheets<cr>
 
+map <leader>t :CommandTFlush<cr>\|:CommandT ~/Dropbox/text<cr>
+
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
 
+map <leader>g :Gstatus<CR>
+
+func! WordProcessorMode() 
+  setlocal formatoptions=1 
+  setlocal noexpandtab 
+  map j gj 
+  map k gk
+  setlocal spell spelllang=en_us 
+  set complete+=s
+  set formatprg=par
+  setlocal wrap 
+  setlocal linebreak 
+endfunc
+
+let b:dispatch = 'bundle exec rspec %'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RENAME CURRENT FILE
 " """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -141,16 +146,15 @@ function! RenameFile()
 endfunction
 map <leader>n :call RenameFile()<cr>
 
-func! WordProcessorMode()
-  setlocal formatoptions=1
-  setlocal noexpandtab
-  map j gj
-  map k gk
-  setlocal spell spelllang=en_us
-  set thesaurus+=/Users/sbrown/.vim/thesaurus/mthesaur.txt
-  set complete+=s
-  set formatprg=par
-  setlocal wrap
-  setlocal linebreak
-endfu
-com! WP call WordProcessorMode()
+" for dispatch
+autocmd FileType java let b:dispatch = 'javac %'
+autocmd FileType ruby let b:dispatch = 'bundle exec rspec %'
+autocmd FileType cucumber let b:dispatch = 'bundle exec cucumber %'
+
+" scratchpad
+map <Leader>sc :sp ~/Dropbox/notes/scratch.txt<CR>
+map <Leader>to :sp ~/Dropbox/notes/todo.mdown<CR>
+map <C-s> <esc>:w<CR>
+imap <C-s> <esc>:w<CR>
+map <Leader>j :e ~/Dropbox/docs/2013.markdown<CR>
+map <Leader>w :!bundle exec cucumber --profile wip<CR>

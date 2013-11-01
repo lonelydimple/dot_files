@@ -1,6 +1,3 @@
-# ~/.tmuxinator/mbc.yml
-# you can make as many tabs as you wish...
-
 project_name: mbc
 project_root: ~/projects/mbc
 tabs:
@@ -9,6 +6,4 @@ tabs:
   - console: rails c
   - server: rails s
   - mysql: mysql -u root mbc_development
-  - test_log: tail -f log/test.log
-  - guard: bundle exec guard -g spork
   - pdf_helper: cd pdf_helper/ && ./start_pdf_helper.sh

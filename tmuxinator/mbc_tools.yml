@@ -1,0 +1,5 @@
+project_name: mbc_tools
+project_root: ~/projects/mbc_tools
+tabs:
+  - editor: vim
+  - shell:

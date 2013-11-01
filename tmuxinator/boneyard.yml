@@ -1,0 +1,6 @@
+project_name: boneyard
+project_root: ~/projects/boneyard
+tabs:
+  - editor: vim
+  - shell:
+  - server: rails s -p 4000

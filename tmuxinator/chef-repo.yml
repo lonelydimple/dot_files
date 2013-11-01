@@ -1,0 +1,5 @@
+project_name: chef-repo
+project_root: ~/projects/chef-repo
+tabs:
+  - editor: vim
+  - shell:

@@ -42,7 +42,7 @@
 	name = Scott Robinson
 	email = scott@lonelydimple.com
 [github]
-	user = scottdavidrobinson
+	user = lonelydimple
 	token = a05ef8891535d050ce6985ec3658c054
 	oauth-token = 5d61f7885626902cf140330d9e0a869e634dea43
 [pivotal]

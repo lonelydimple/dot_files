@@ -1,0 +1,5 @@
+project_name: mbc_support
+project_root: ~/projects/merchants_support
+tabs:
+  - editor: vim
+  - shell:

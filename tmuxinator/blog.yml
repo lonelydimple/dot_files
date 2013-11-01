@@ -1,0 +1,5 @@
+project_name: blog
+project_root: ~/projects/blog
+tabs:
+  - editor: vim
+  - shell:

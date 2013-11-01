@@ -1,0 +1,6 @@
+project_name: von_trapp
+project_root: ~/projects/von_trapp
+tabs:
+  - editor: vim
+  - shell:
+  - server: rackup -p 5000
