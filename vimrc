@@ -8,8 +8,8 @@ set laststatus=2
 set encoding=utf-8
 set t_Co=256
 
-set background=dark
-colorscheme grb256
+" set background=dark
+colorscheme hemisu
 
 set tabstop=2
 set shiftwidth=2
@@ -113,6 +113,7 @@ map <leader>gs :CommandTFlush<cr>\|:CommandT public/stylesheets<cr>
 
 map <leader>t :CommandTFlush<cr>\|:CommandT ~/Dropbox/text<cr>
 
+map <leader>i :topleft :split ~/Dropbox/text/inbox.markdown<CR>
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
