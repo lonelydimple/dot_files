@@ -1,0 +1,8 @@
+project_name: hubble
+project_root: ~/projects/hubble
+tabs:
+  - editor: vim
+  - shell:
+  - console: rails c
+  - server: rails s
+  - mysql: mysql -u root hubble_development

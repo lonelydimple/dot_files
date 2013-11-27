@@ -3,4 +3,4 @@ project_root: ~/projects/pdf_helper
 tabs:
   - editor: vim
   - shell:
-  - server: rackup -p 3500
+  - server: rackup -p 3999
