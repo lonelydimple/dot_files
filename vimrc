@@ -2,25 +2,19 @@ call pathogen#infect()
 syntax on
 filetype plugin indent on
 
+colorscheme hemisu
+
 set hidden
 set nocompatible
-set laststatus=2
 set encoding=utf-8
 set t_Co=256
-
-" set background=dark
-colorscheme hemisu
 
 set tabstop=2
 set shiftwidth=2
 set autoindent
-set laststatus=2
-set showtabline=2
 set nowrap
 set wildmode=longest,list
 set wildmenu
-
-:set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
 set expandtab
 let mapleader=","
