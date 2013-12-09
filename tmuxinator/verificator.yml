@@ -1,0 +1,5 @@
+project_name: verificator
+project_root: ~/projects/verificator
+tabs:
+  - editor: vim
+  - shell:
