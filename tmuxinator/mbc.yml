@@ -1,6 +1,6 @@
-project_name: mbc
-project_root: ~/projects/mbc
-tabs:
+name: mbc
+root: ~/projects/mbc
+windows:
   - editor: vim
   - shell:
   - console: rails c

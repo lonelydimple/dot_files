@@ -1,5 +1,5 @@
-project_name: tomcat
-project_root: ~/projects/tomcat
-tabs:
+name: tomcat
+root: ~/projects/tomcat
+windows:
   - editor: vim
   - shell:

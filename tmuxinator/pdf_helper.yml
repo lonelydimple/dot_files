@@ -1,6 +1,6 @@
-project_name: pdf_helper
-project_root: ~/projects/pdf_helper
-tabs:
+name: pdf_helper
+root: ~/projects/pdf_helper
+windows:
   - editor: vim
   - shell:
   - server: rackup -p 3999

@@ -1,6 +1,6 @@
-project_name: rate
-project_root: ~/projects/rate_against_the_machine
-tabs:
+name: rate
+root: ~/projects/rate_against_the_machine
+windows:
   - editor: vim
   - shell:
   - server: rackup

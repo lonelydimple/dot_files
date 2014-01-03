@@ -1,8 +1,6 @@
-# ~/.tmuxinator/lonelydimple.yml
-# you can make as many tabs as you wish...
-
-project_name: lonelydimple
-project_root: ~/projects/lonelydimple
-tabs:
+name: lonelydimple
+root: ~/projects/lonelydimple.github.io
+windows:
   - editor: vim
   - shell:
+  - server: jekyll serve --port 8888 --watch
