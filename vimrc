@@ -2,7 +2,8 @@ call pathogen#infect()
 syntax on
 filetype plugin indent on
 
-colorscheme hemisu
+set background=dark
+colorscheme base16-ocean
 
 set hidden
 set nocompatible
@@ -112,6 +113,8 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
 
+set laststatus=2
+set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 map <leader>g :Gstatus<CR>
 
 func! WordProcessorMode() 
@@ -146,10 +149,4 @@ autocmd FileType java let b:dispatch = 'javac %'
 autocmd FileType ruby let b:dispatch = 'bundle exec rspec %'
 autocmd FileType cucumber let b:dispatch = 'bundle exec cucumber %'
 
-" scratchpad
-map <Leader>sc :sp ~/Dropbox/notes/scratch.txt<CR>
-map <Leader>to :sp ~/Dropbox/notes/todo.mdown<CR>
-map <C-s> <esc>:w<CR>
-imap <C-s> <esc>:w<CR>
-map <Leader>j :e ~/Dropbox/docs/2013.markdown<CR>
 map <Leader>w :!bundle exec cucumber --profile wip<CR>
