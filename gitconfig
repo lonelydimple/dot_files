@@ -64,3 +64,5 @@
 	trustExitCode = true
 [merge]
 	defaultToUpstream = true
+[push]
+	default = current

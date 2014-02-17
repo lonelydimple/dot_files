@@ -2,8 +2,8 @@ call pathogen#infect()
 syntax on
 filetype plugin indent on
 
-set background=dark
-colorscheme base16-ocean
+set background=light
+colorscheme hemisu
 
 set hidden
 set nocompatible
@@ -91,45 +91,13 @@ noremap <leader>p :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 set shell=/bin/sh
 
 noremap <leader><leader> <C-^>
-map <leader>gr :topleft :split config/routes.rb<CR>
-map <leader>gg :topleft :split Gemfile<CR>
-" Open files with <leader>f
-map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-" Open files, limited to the directory of the current file, with <leader>gf
-" " This requires the %% mapping found below.
-map <leader>gf :CommandTFlush<cr>\|:CommandT %%<cr>
-map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
-map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
-map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
-map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
-map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
-map <leader>gp :CommandTFlush<cr>\|:CommandT app/replicators<cr>
-map <leader>gs :CommandTFlush<cr>\|:CommandT public/stylesheets<cr>
-
-map <leader>t :CommandTFlush<cr>\|:CommandT ~/Dropbox/text<cr>
-
-map <leader>i :topleft :split ~/Dropbox/text/inbox.markdown<CR>
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
 
 set laststatus=2
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
-map <leader>g :Gstatus<CR>
 
-func! WordProcessorMode() 
-  setlocal formatoptions=1 
-  setlocal noexpandtab 
-  map j gj 
-  map k gk
-  setlocal spell spelllang=en_us 
-  set complete+=s
-  set formatprg=par
-  setlocal wrap 
-  setlocal linebreak 
-endfunc
-
-let b:dispatch = 'bundle exec rspec %'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RENAME CURRENT FILE
 " """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -144,9 +112,5 @@ function! RenameFile()
 endfunction
 map <leader>n :call RenameFile()<cr>
 
-" for dispatch
-autocmd FileType java let b:dispatch = 'javac %'
-autocmd FileType ruby let b:dispatch = 'bundle exec rspec %'
-autocmd FileType cucumber let b:dispatch = 'bundle exec cucumber %'
-
-map <Leader>w :!bundle exec cucumber --profile wip<CR>
+map <Leader>w :!bundle exec spring cucumber --profile wip<CR>
+map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
