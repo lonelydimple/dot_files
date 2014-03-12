@@ -3,6 +3,4 @@ root: ~/projects/hubble
 windows:
   - editor: vim
   - shell:
-  - console: rails c
   - server: unicorn
-  - mysql: psql hubble_development

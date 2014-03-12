@@ -3,6 +3,4 @@ root: ~/projects/mbc
 windows:
   - editor: vim
   - shell:
-  - console: rails c
   - server: rails s
-  - mysql: mysql -u root mbc_development
