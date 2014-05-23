@@ -1,4 +1,3 @@
-call pathogen#infect()
 syntax on
 filetype plugin indent on
 
@@ -113,4 +112,15 @@ endfunction
 map <leader>n :call RenameFile()<cr>
 
 map <Leader>w :!bundle exec spring cucumber --profile wip<CR>
-map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+
+" manage vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'mileszs/ack.vim'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-surround'
+
+call vundle#end()
