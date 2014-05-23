@@ -112,6 +112,8 @@ endfunction
 map <leader>n :call RenameFile()<cr>
 
 map <Leader>w :!bundle exec spring cucumber --profile wip<CR>
+map <Leader>r :call RunCurrentSpecFile()<CR>
+map <Leader>R :call RunNearestSpec()<CR>
 
 " manage vundle
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -122,5 +124,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
+Plugin 'thoughtbot/vim-rspec'
 
 call vundle#end()
