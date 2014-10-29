@@ -1,9 +1,5 @@
-syntax on
-filetype plugin indent on
 
-set background=light
-colorscheme github256
-
+color hemisu
 set hidden
 set nocompatible
 set encoding=utf-8
@@ -13,6 +9,8 @@ set tabstop=2
 set shiftwidth=2
 set autoindent
 set nowrap
+"set cursorline
+"set number
 set wildmode=longest,list
 set wildmenu
 
@@ -134,9 +132,14 @@ endfunction
 " Fuzzy select one of those. Open the selected file with :e.
 nnoremap <leader>f :call SelectaCommand("find * -type f", "", ":e")<cr>
 
+nnoremap <leader>j :e ~/Dropbox/journal.mdown<CR>
+
+"autocmd BufNewFile,BufRead *.ex,*.exs,*.edn setlocal filetype=elixir
+
 " manage vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
@@ -144,5 +147,17 @@ Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
 Plugin 'thoughtbot/vim-rspec'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fireplace'
+Plugin 'guns/vim-clojure-static'
+Plugin 'vim-scripts/paredit.vim'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'mattreduce/vim-mix'
+Plugin 'kchmck/vim-coffee-script'
+
+syntax on
+filetype plugin indent on
 
 call vundle#end()
