@@ -1,3 +1,6 @@
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
 
 color hemisu
 set hidden
@@ -109,7 +112,7 @@ function! RenameFile()
 endfunction
 map <leader>n :call RenameFile()<cr>
 
-map <Leader>w :!bundle exec spring cucumber --profile wip<CR>
+map <Leader>w :!bundle exec cucumber --profile wip<CR>
 map <Leader>r :call RunCurrentSpecFile()<CR>
 map <Leader>R :call RunNearestSpec()<CR>
 
@@ -131,33 +134,18 @@ endfunction
 " Find all files in all non-dot directories starting in the working directory.
 " Fuzzy select one of those. Open the selected file with :e.
 nnoremap <leader>f :call SelectaCommand("find * -type f", "", ":e")<cr>
+nnoremap <leader>m :call SelectaCommand("find ~/Dropbox/me/* -type f", "", ":e")<cr>
 
-nnoremap <leader>j :e ~/Dropbox/journal.mdown<CR>
+nnoremap <leader>j :e ~/Dropbox/me/journal.markdown<CR>
+nnoremap <leader>d :Dispatch<CR>
 
-"autocmd BufNewFile,BufRead *.ex,*.exs,*.edn setlocal filetype=elixir
+augroup pencil
+  autocmd!
+  autocmd FileType markdown call pencil#init()
+augroup END
 
-" manage vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" recognize .md as markdown files
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
-
-Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'mileszs/ack.vim'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-surround'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-fireplace'
-Plugin 'guns/vim-clojure-static'
-Plugin 'vim-scripts/paredit.vim'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'mattreduce/vim-mix'
-Plugin 'kchmck/vim-coffee-script'
-
-syntax on
-filetype plugin indent on
-
-call vundle#end()
+" use rspec for ruby dispatch
+autocmd FileType ruby let b:dispatch = 'rspec %'
