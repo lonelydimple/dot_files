@@ -2,7 +2,7 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-color hemisu
+color spacegray
 set hidden
 set nocompatible
 set encoding=utf-8
