@@ -1,8 +1,22 @@
-execute pathogen#infect()
+call plug#begin('~/.vim/plugged')
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-endwise'
+Plug 'thoughtbot/vim-rspec'
+Plug 'mileszs/ack.vim'
+
+call plug#end()
+
+
 syntax on
 filetype plugin indent on
 
-color spacegray
+color seoul256
 set hidden
 set nocompatible
 set encoding=utf-8
@@ -133,7 +147,9 @@ endfunction
 
 " Find all files in all non-dot directories starting in the working directory.
 " Fuzzy select one of those. Open the selected file with :e.
-nnoremap <leader>f :call SelectaCommand("find * -type f", "", ":e")<cr>
+nnoremap <leader>f :FZF<cr>
+nnoremap <leader>b :Buffers<cr>
+nnoremap <C-p> :FZF<cr>
 nnoremap <leader>m :call SelectaCommand("find ~/Dropbox/me/* -type f", "", ":e")<cr>
 
 nnoremap <leader>j :e ~/Dropbox/me/journal.markdown<CR>
