@@ -2,21 +2,36 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
 Plug 'thoughtbot/vim-rspec'
 Plug 'mileszs/ack.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'kchmck/vim-coffee-script'
+Plug 'posva/vim-vue'
+Plug 'junegunn/goyo.vim'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-unimpaired'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
+Plug 'tpope/vim-rhubarb'
 
 call plug#end()
 
+let g:syntastic_ruby_checkers = ['rubocop']
+let g:tmuxline_powerline_separators = 0
 
 syntax on
 filetype plugin indent on
 
-color seoul256
+set background=dark
+color solarized
+
 set hidden
 set nocompatible
 set encoding=utf-8
@@ -25,9 +40,8 @@ set t_Co=256
 set tabstop=2
 set shiftwidth=2
 set autoindent
-set nowrap
-"set cursorline
-"set number
+set linebreak
+set number
 set wildmode=longest,list
 set wildmenu
 
@@ -55,6 +69,9 @@ set directory=~/.vim/_temp//
 
 vmap <A-]> >gv
 vmap <A-[> <gv
+
+nmap j gj
+nmap k gk
 
 set winwidth=84
 " We have to have a winheight bigger than we want to set winminheight. But if
@@ -148,20 +165,11 @@ endfunction
 " Find all files in all non-dot directories starting in the working directory.
 " Fuzzy select one of those. Open the selected file with :e.
 nnoremap <leader>f :FZF<cr>
-nnoremap <leader>b :Buffers<cr>
 nnoremap <C-p> :FZF<cr>
 nnoremap <leader>m :call SelectaCommand("find ~/Dropbox/me/* -type f", "", ":e")<cr>
-
-nnoremap <leader>j :e ~/Dropbox/me/journal.markdown<CR>
-nnoremap <leader>d :Dispatch<CR>
-
-augroup pencil
-  autocmd!
-  autocmd FileType markdown call pencil#init()
-augroup END
 
 " recognize .md as markdown files
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
-" use rspec for ruby dispatch
-autocmd FileType ruby let b:dispatch = 'rspec %'
+nmap ; :Buffers<CR>
+nmap <Leader>t :NERDTreeToggle<CR>
