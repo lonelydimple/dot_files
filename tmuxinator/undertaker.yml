@@ -1,0 +1,6 @@
+name: undertaker
+root: ~/code/undertaker
+windows:
+  - editor: vim
+  - shell:
+  - server: bundle exec rails server -p 3004

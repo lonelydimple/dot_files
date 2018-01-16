@@ -1,0 +1,6 @@
+name: bond-doctor
+root: ~/code/bond-doctor
+windows:
+  - editor: vim
+  - shell:
+  - server: bundle exec rackup config.ru -p 9291

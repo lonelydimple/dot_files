@@ -1,0 +1,5 @@
+name: imageright_js
+root: ~/code/image-right-js
+windows:
+  - editor: vim
+  - shell:

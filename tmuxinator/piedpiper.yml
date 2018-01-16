@@ -1,0 +1,6 @@
+name: piedpiper
+root: ~/code/piedpiper
+windows:
+  - editor: vim
+  - shell:
+  - server: bundle exec rails server -p 3003

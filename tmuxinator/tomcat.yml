@@ -1,5 +1,0 @@
-name: tomcat
-root: ~/projects/tomcat
-windows:
-  - editor: vim
-  - shell:

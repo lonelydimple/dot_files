@@ -1,5 +1,5 @@
 name: mbc_tools
-root: ~/projects/mbc_tools
+root: ~/code/mbc_tools
 windows:
   - editor: vim
   - shell:

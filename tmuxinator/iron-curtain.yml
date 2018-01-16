@@ -1,0 +1,6 @@
+name: iron-curtain
+root: ~/code/iron-curtain
+windows:
+  - editor: vim
+  - shell:
+  - server: bundle exec rackup config.ru -p 9295

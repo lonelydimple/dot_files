@@ -1,0 +1,5 @@
+name: nnapp_rails
+root: ~/code/nnapp_rails
+windows:
+  - editor: vim
+  - shell:

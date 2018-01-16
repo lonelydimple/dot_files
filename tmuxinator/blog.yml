@@ -1,5 +1,0 @@
-name: blog
-roject_root: ~/projects/blog
-windows:
-  - editor: vim
-  - shell:

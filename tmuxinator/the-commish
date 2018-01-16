@@ -1,0 +1,6 @@
+name: the-commish
+root: ~/code/the-commish
+windows:
+  - editor: vim
+  - shell:
+  - server: bundle exec rails server -p 3008

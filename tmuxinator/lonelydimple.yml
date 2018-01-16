@@ -1,6 +1,0 @@
-name: lonelydimple
-root: ~/projects/lonelydimple.github.io
-windows:
-  - editor: vim
-  - shell:
-  - server: jekyll serve --port 8888 --watch

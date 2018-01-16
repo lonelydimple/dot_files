@@ -1,5 +1,5 @@
 name: verificator
-root: ~/projects/verificator
+root: ~/code/verificator
 windows:
   - editor: vim
   - shell:

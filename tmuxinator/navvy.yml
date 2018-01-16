@@ -1,0 +1,6 @@
+name: navvy
+root: ~/code/navvy
+windows:
+  - editor: vim
+  - shell:
+  - server: bundle exec shotgun config.ru -p 3006

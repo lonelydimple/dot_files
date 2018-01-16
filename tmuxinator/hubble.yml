@@ -1,6 +1,6 @@
 name: hubble
-root: ~/projects/hubble
+root: ~/code/hubble
 windows:
   - editor: vim
   - shell:
-  - server: unicorn
+  - server: bundle exec rails server -p 3001

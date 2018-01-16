@@ -1,0 +1,6 @@
+name: commercial-rating
+root: ~/code/commercial-rating
+windows:
+  - editor: vim
+  - shell:
+  - server: bundle exec rackup config.ru -p 9293

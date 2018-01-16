@@ -1,5 +1,0 @@
-name: mbc_support
-root: ~/projects/merchants_support
-windows:
-  - editor: vim
-  - shell:

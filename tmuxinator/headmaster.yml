@@ -1,0 +1,6 @@
+name: headmaster
+root: ~/code/headmaster
+windows:
+  - editor: vim
+  - shell:
+  - server: bundle exec rails server -p 3005

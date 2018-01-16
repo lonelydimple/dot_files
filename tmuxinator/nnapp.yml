@@ -1,5 +1,5 @@
 name: nnapp
-root: ~/projects/nnapp
+root: ~/code/nnapp
 windows:
   - editor: vim
   - shell:

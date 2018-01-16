@@ -1,0 +1,5 @@
+name: merchants_support
+root: ~/code/merchants_support
+windows:
+  - editor: vim
+  - shell:

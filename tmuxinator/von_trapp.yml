@@ -1,6 +1,6 @@
 name: von_trapp
-root: ~/projects/von_trapp
+root: ~/code/von_trapp
 windows:
   - editor: vim
   - shell:
-  - server: rackup -p 5000
+  - server: bundle exec rackup config.ru -p 5000

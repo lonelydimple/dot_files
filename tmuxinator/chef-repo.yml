@@ -1,5 +1,0 @@
-name: chef-repo
-root: ~/projects/chef-repo
-windows:
-  - editor: vim
-  - shell:
