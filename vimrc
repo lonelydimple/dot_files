@@ -11,26 +11,28 @@ Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'kchmck/vim-coffee-script'
 Plug 'posva/vim-vue'
-Plug 'junegunn/goyo.vim'
+" Plug 'junegunn/goyo.vim'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'edkolev/tmuxline.vim'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+" Plug 'edkolev/tmuxline.vim'
 Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-dispatch'
 
 call plug#end()
 
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:tmuxline_powerline_separators = 0
 
+
 syntax on
 filetype plugin indent on
 
-set background=dark
-color solarized
+set background=light
+color hemisu
 
 set hidden
 set nocompatible
@@ -40,8 +42,8 @@ set t_Co=256
 set tabstop=2
 set shiftwidth=2
 set autoindent
-set linebreak
-set number
+" set linebreak
+" set number
 set wildmode=longest,list
 set wildmenu
 
@@ -173,3 +175,12 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 nmap ; :Buffers<CR>
 nmap <Leader>t :NERDTreeToggle<CR>
+
+" use silver searcher instead of ack
+let g:ackprg = 'ag --vimgrep'
+
+" map FZF interactive searching via ag
+nmap <Leader>a :Ag<CR>
+
+" close the quickfix window no matter where you are
+nmap <Leader>c :cclose<CR>
