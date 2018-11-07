@@ -4,6 +4,5 @@ windows:
   - editor: vim
   - shell:
   - server: bundle exec rails server -p 3000 -b 127.0.0.1
-  - webpacker: bin/webpack-dev-server
   - solr: bundle exec rake sunspot:solr:run
   - test-solr: bundle exec rake sunspot:solr:run RAILS_ENV=test

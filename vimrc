@@ -16,9 +16,9 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-" Plug 'edkolev/tmuxline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-dispatch'
 
@@ -26,6 +26,7 @@ call plug#end()
 
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:tmuxline_powerline_separators = 0
+let g:airline_theme = 'papercolor'
 
 
 syntax on
@@ -46,6 +47,7 @@ set autoindent
 " set number
 set wildmode=longest,list
 set wildmenu
+set nowrap
 
 set expandtab
 let mapleader=","
