@@ -1,0 +1,5 @@
+name: prose
+root: ~/prose
+windows:
+  - editor: vim
+  - shell:

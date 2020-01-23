@@ -1,7 +1,5 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -11,29 +9,38 @@ Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'kchmck/vim-coffee-script'
 Plug 'posva/vim-vue'
-" Plug 'junegunn/goyo.vim'
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'edkolev/tmuxline.vim'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-dispatch'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
+" Plug 'junegunn/goyo.vim'
+" Plug 'junegunn/limelight.vim'
+" Plug 'godlygeek/tabular'
+" Plug 'plasticboy/vim-markdown'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+" Plug 'edkolev/tmuxline.vim'
+
+Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
-let g:syntastic_ruby_checkers = ['rubocop']
+" let g:syntastic_ruby_checkers = ['rubocop']
 let g:tmuxline_powerline_separators = 0
-let g:airline_theme = 'papercolor'
+" let g:tmuxline_preset = { 'a' : '#S', 'b' : '#W', 'c' : '#H', 'win' : '#I #W', 'cwin' : '#I #W', 'x' : '', 'y' : '', 'z' : '' }
+let g:tmuxline_preset = { 'a' : '#S', 'win' : '#I #W', 'cwin' : '#I #W' }
+let g:airline_theme = 'nord'
 
+" silence mismatching rspec versions
+let g:rspec_command = "Dispatch bundle exec rspec {spec}"
 
 syntax on
 filetype plugin indent on
 
-set background=light
-color hemisu
+" set background=light
+color solarized
 
 set hidden
 set nocompatible
@@ -45,6 +52,11 @@ set shiftwidth=2
 set autoindent
 " set linebreak
 " set number
+
+" turn on hybrid relative numbers
+" set number relativenumber
+" set nu rnu
+
 set wildmode=longest,list
 set wildmenu
 set nowrap
@@ -96,6 +108,8 @@ augroup resCur
   autocmd!
   autocmd BufWinEnter * call ResCur()
 augroup END
+
+au BufRead, BufNewFile *.md setlocal textwidth=80
 
 "Use TAB to complete when typing words, else inserts TABs as usual.
 ""Uses dictionary and source files to find matching words to complete.
