@@ -15,6 +15,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-dispatch'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+" Plug 'sonph/onehalf', { 'rtp': 'vim' }
 
 " Plug 'junegunn/goyo.vim'
 " Plug 'junegunn/limelight.vim'
@@ -24,23 +25,28 @@ Plug 'junegunn/fzf.vim'
 " Plug 'vim-airline/vim-airline-themes'
 " Plug 'edkolev/tmuxline.vim'
 
-Plug 'arcticicestudio/nord-vim'
+" Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 " let g:syntastic_ruby_checkers = ['rubocop']
 let g:tmuxline_powerline_separators = 0
 " let g:tmuxline_preset = { 'a' : '#S', 'b' : '#W', 'c' : '#H', 'win' : '#I #W', 'cwin' : '#I #W', 'x' : '', 'y' : '', 'z' : '' }
-let g:tmuxline_preset = { 'a' : '#S', 'win' : '#I #W', 'cwin' : '#I #W' }
-let g:airline_theme = 'nord'
+" let g:tmuxline_preset = { 'a' : '#S', 'win' : '#I #W', 'cwin' : '#I #W' }
+let g:airline_theme = 'solarized'
+let g:tmuxline_preset = 'minimal'
 
 " silence mismatching rspec versions
-let g:rspec_command = "Dispatch bundle exec rspec {spec}"
+let g:rspec_command = "!bundle exec rspec {spec}"
 
 syntax on
 filetype plugin indent on
 
-" set background=light
-color solarized
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+set background=dark
+colorscheme gruvbox
 
 set hidden
 set nocompatible
@@ -50,8 +56,8 @@ set t_Co=256
 set tabstop=2
 set shiftwidth=2
 set autoindent
-" set linebreak
-" set number
+set linebreak
+set nonumber
 
 " turn on hybrid relative numbers
 " set number relativenumber
@@ -107,6 +113,10 @@ endfunction
 augroup resCur
   autocmd!
   autocmd BufWinEnter * call ResCur()
+  autocmd BufReadPost *
+      \ if line("'\"") > 0 && line("'\"") <= line("$") |
+      \   exe "normal g`\"" |
+      \ endif
 augroup END
 
 au BufRead, BufNewFile *.md setlocal textwidth=80
@@ -185,6 +195,7 @@ endfunction
 nnoremap <leader>f :FZF<cr>
 nnoremap <C-p> :FZF<cr>
 nnoremap <leader>m :call SelectaCommand("find ~/Dropbox/me/* -type f", "", ":e")<cr>
+nnoremap <CR> :nohlsearch<CR>
 
 " recognize .md as markdown files
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
