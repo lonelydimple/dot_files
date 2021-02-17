@@ -1,5 +1,4 @@
 call plug#begin('~/.vim/plugged')
-
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -15,38 +14,26 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-dispatch'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-" Plug 'sonph/onehalf', { 'rtp': 'vim' }
-
-" Plug 'junegunn/goyo.vim'
-" Plug 'junegunn/limelight.vim'
-" Plug 'godlygeek/tabular'
-" Plug 'plasticboy/vim-markdown'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-" Plug 'edkolev/tmuxline.vim'
-
-" Plug 'arcticicestudio/nord-vim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
 call plug#end()
 
-" let g:syntastic_ruby_checkers = ['rubocop']
-let g:tmuxline_powerline_separators = 0
-" let g:tmuxline_preset = { 'a' : '#S', 'b' : '#W', 'c' : '#H', 'win' : '#I #W', 'cwin' : '#I #W', 'x' : '', 'y' : '', 'z' : '' }
-" let g:tmuxline_preset = { 'a' : '#S', 'win' : '#I #W', 'cwin' : '#I #W' }
-let g:airline_theme = 'solarized'
-let g:tmuxline_preset = 'minimal'
 
 " silence mismatching rspec versions
 let g:rspec_command = "!bundle exec rspec {spec}"
+let g:tmuxline_preset = 'minimal'
 
 syntax on
 filetype plugin indent on
 
-set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
-set background=dark
-colorscheme gruvbox
+set background=light
+colorscheme solarized
+set termguicolors
 
 set hidden
 set nocompatible
