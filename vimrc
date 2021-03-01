@@ -18,12 +18,18 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
 call plug#end()
 
 
 " silence mismatching rspec versions
-let g:rspec_command = "!bundle exec rspec {spec}"
+let g:rspec_command = "Dispatch bundle exec rspec {spec}"
 let g:tmuxline_preset = 'minimal'
+
+autocmd FileType ruby let b:dispatch = 'bundle exec rspec %'
+nnoremap <Leader>d :Dispatch<CR>
+nnoremap <Leader>g :GStatus<CR>
 
 syntax on
 filetype plugin indent on
@@ -183,6 +189,8 @@ nnoremap <leader>f :FZF<cr>
 nnoremap <C-p> :FZF<cr>
 nnoremap <leader>m :call SelectaCommand("find ~/Dropbox/me/* -type f", "", ":e")<cr>
 nnoremap <CR> :nohlsearch<CR>
+nnoremap <leader>d :Dispatch<CR>
+nnoremap <leader>g :Gstatus<CR>
 
 " recognize .md as markdown files
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
@@ -198,3 +206,12 @@ nmap <Leader>a :Ag<CR>
 
 " close the quickfix window no matter where you are
 nmap <Leader>c :cclose<CR>
+
+" toggle background color
+function! ToggleBackground()
+  let &background = ( &background == "dark"? "light" : "dark" )
+endfunction
+nnoremap <leader>b :call ToggleBackground()<cr>
+
+" vim-notes settings
+let g:notes_directories = ['~/vim-notes']
